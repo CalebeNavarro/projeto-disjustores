@@ -35,6 +35,7 @@ const Result = ({data}) => {
   const nylonObj = {
     "400x400x200": 0.4,
     "600x600x200": 0.6,
+    "800x600x200": 0.6,
     "1000x600x200": 1.0,
     "1200x600x200": 1.2,
     "1600x600x200": 1.8,
@@ -73,6 +74,20 @@ const Result = ({data}) => {
       }
     }
   }
+    // 0.08 3/8 x 1/8 73A
+    // Os disj. Geral Cx. Mold (0,15m) até 90A, usam o 1/2 x 1/8 97A.
+    // Os de 100A para cima (0,2m) usam 1/2 x 1/4 179A
+  const fooBarramentoGeralInfo = (disjuntorGeral) => {
+    const widthDisjuntorGeral = findWidthDisjuntorGeral(disjuntorGeral);
+    if (widthDisjuntorGeral === 0.08) {
+      return "3/8 x 1/8 73A";
+    } else if (widthDisjuntorGeral === 0.15) {
+      return "1/2 x 1/8 97A";
+    } else if (widthDisjuntorGeral === 2) {
+      return "1/2 x 1/4 179A";
+    }
+    return ""
+  }
 
   const make = ({contador, disjuntor1p, disjuntor2p, disjuntor3p, disjuntorGeral, dr2p, dr4p, contadorName}) => {
     const widthDisjuntorGeral = findWidthDisjuntorGeral(disjuntorGeral)
@@ -93,6 +108,7 @@ const Result = ({data}) => {
     }
 
     const barramentGeral = parseFloat(((((disjuntor1p*0.02) + (disjuntor2p*0.04) + (disjuntor3p*0.08) + (dr2p*0.04) + (dr4p*0.08)) / 2) + 0.15) * 3).toFixed(2);
+    const barramentoGeralInfo = fooBarramentoGeralInfo(disjuntorGeral)
 
     const baseQuadro = atualQuadro.split("x")[1]/1000;
     const alturaQuadro = parseFloat(atualQuadro.split("x")[0]/1000).toFixed(2);
@@ -109,9 +125,9 @@ const Result = ({data}) => {
     return   [
         createData('Tamanho do quadro', disjuntorGeral , atualQuadro+"MM"),
         createData('Espaço p/ contatores', contadorName, contadorM+"m"),
-        createData('Quantidade de Barramento geral', "",barramentGeral+"m"),
+        createData('Quantidade de Barramento geral', barramentoGeralInfo ,barramentGeral+"m"),
         createData("Barramento Terra e Neutro", "3/4 x 1/8 146A",alturaQuadro+"m"), // 0,6m
-        createData('Quantidade de barramento Aux', "",barramentoAux+"m"), // 0,765m
+        createData('Quantidade de barramento Aux', "3/8 x3/16 60a", barramentoAux+"m"), // 0,765m
         createData('Quantidade da canaleta', "",quantidadeCanaleta+"m"),
         createData('Isoladores', "16X30X1/4",5+" unidades"),
         createData('DPS', "",4+" unidades"),

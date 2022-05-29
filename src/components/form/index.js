@@ -19,6 +19,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import DisGeral from "../disGeral";
+import { dataDisjGeral } from "../../database";
 
 const schema = yup.object().shape({
   disjuntorGeral: yup.string().required().transform((value, originalValue) => !originalValue ? "none" : value),

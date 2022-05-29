@@ -22,7 +22,7 @@ import DisGeral from "../disGeral";
 import { dataDisjGeral } from "../../database";
 
 const schema = yup.object().shape({
-  disjuntorGeral: yup.string().required().transform((value, originalValue) => !originalValue ? "none" : value),
+  disjuntorGeral: yup.string().transform((value, originalValue) => !originalValue ? "" : value),
 
   disjuntor1p: yup.number().required().transform((value, originalValue) => !originalValue ? 0 : value),
   disjuntor2p: yup.number().required().transform((value, originalValue) => !originalValue ? 0 : value),
@@ -52,6 +52,7 @@ const Form = ({setData}) => {
 
 
   const onSubmit = (data) => {
+    console.log(data)
     setData(data);
   }
 

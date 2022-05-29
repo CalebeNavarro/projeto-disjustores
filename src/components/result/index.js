@@ -63,7 +63,7 @@ const Result = ({data}) => {
   }
 
   const findWidthDisjuntorGeral = (name) => {
-    if (name === "none") {
+    if (name == "") {
 
       return 0
     }

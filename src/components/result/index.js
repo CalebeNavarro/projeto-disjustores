@@ -127,7 +127,7 @@ const Result = ({data}) => {
         createData('Espaço p/ contatores', contadorName, contadorM+"m"),
         createData('Quantidade de Barramento geral', barramentoGeralInfo ,barramentGeral+"m"),
         createData("Barramento Terra e Neutro", "3/4 x 1/8 146A",alturaQuadro+"m"), // 0,6m
-        createData('Quantidade de barramento Aux', "3/8 x3/16 60a", barramentoAux+"m"), // 0,765m
+        createData('Quantidade de barramento Aux', barramentoAux>0 ? "3/8 x3/16 60a" : "", barramentoAux+"m"), // 0,765m
         createData('Quantidade da canaleta', "",quantidadeCanaleta+"m"),
         createData('Isoladores', "16X30X1/4",5+" unidades"),
         createData('DPS', "",4+" unidades"),

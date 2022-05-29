@@ -24,7 +24,7 @@ const Result = ({data}) => {
   const quadroObj = {
     "0.4": "400x400x200",
     "0.6": "600x600x200",
-    "0.8": "800X600X200",
+    "0.8": "800x600x200",
     "1.0": "1000x600x200",
     "1.2": "1200x600x200",
     "1.6": "1600x600x200",
@@ -79,7 +79,6 @@ const Result = ({data}) => {
     
     const contadorM =  contador > 4 ? 0.25 : 0.1;
     const tamanhoQuadro = (((disjuntor1p*0.02) + (disjuntor2p*0.04) + (disjuntor3p*0.06) + (dr2p*0.04) + (dr4p*0.08)) / 2) + 0.3 + widthDisjuntorGeral + contadorM;
-    console.log(tamanhoQuadro)
     const atualQuadro = fooTamanhoQuadro(tamanhoQuadro);
 
     if (atualQuadro === undefined) {

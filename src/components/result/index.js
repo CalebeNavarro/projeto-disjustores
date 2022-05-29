@@ -83,7 +83,7 @@ const Result = ({data}) => {
       return "3/8 x 1/8 73A";
     } else if (widthDisjuntorGeral === 0.15) {
       return "1/2 x 1/8 97A";
-    } else if (widthDisjuntorGeral === 2) {
+    } else if (widthDisjuntorGeral === 0.2) {
       return "1/2 x 1/4 179A";
     }
     return ""

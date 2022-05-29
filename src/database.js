@@ -1,0 +1,7 @@
+export const dataDisjGeral = {
+  "0.08": ["1P 6A","1P 10A","1P 16A","1P 20A","1P 25A","1P 32A","1P 40A","1P 50A","1P 63A","2P 4A","2P 6A","2P 10A","2P 16A","2P 20A","2P 25A","2P 32A","2P 40A","2P 50A","2P 63A","3P 4A","3P 6A","3P 10A","3P 16A","3P 20A","3P 25A","3P 32A","3P 40A","3P 50A","3P 63A"],
+  "0.15": ["3P 20A CX. MOLD","3P 25A CX. MOLD","3P 32A CX. MOLD","3P 40A CX. MOLD","3P 50A CX. MOLD","3P 63A CX. MOLD","3P 80A CX. MOLD"],
+  "0.20": ["3P 100A CX. MOLD","3P 125A CX. MOLD","3P 150A CX. MOLD"]
+};
+
+export const dataContador = ["7A 220V","9A 220V","12A 220V","18A 220V","25A 220V","32A 220V"];
